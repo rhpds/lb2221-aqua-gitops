@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: wksp-{{ .Values.username }}
+  name: workbench-{{ .Values.username }}
   annotations:
-    openshift.io/description: "Workspace Namespace"
-    openshift.io/display-name: "Workspace"
+    openshift.io/description: "Workbench Namespace"
+    openshift.io/display-name: "Workbench"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: wksp-edit-{{ .Values.username }}
-  namespace: wksp-{{ .Values.username }}
+  name: workbench-edit-{{ .Values.username }}
+  namespace: workbench-{{ .Values.username }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

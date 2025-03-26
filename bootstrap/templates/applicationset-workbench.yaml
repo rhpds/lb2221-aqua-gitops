@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: workspace
+  name: workbench
   namespace: openshift-gitops
 spec:
   generators:
@@ -14,14 +14,14 @@ spec:
 {{- end }}
   template:
     metadata:
-      name: workspace-{{- "{{" }} user {{- " }}" }}
+      name: workbench-{{- "{{" }} user {{- " }}" }}
       namespace: openshift-gitops
     spec:
       project: default
       source:
-        repoURL: {{ .Values.workspace.git.url }}
-        targetRevision: {{ .Values.workspace.git.revision }}
-        path: {{ .Values.workspace.git.path }}
+        repoURL: {{ .Values.workbench.git.url }}
+        targetRevision: {{ .Values.workbench.git.revision }}
+        path: {{ .Values.workbench.git.path }}
         helm:
           values: |
             username: '{{- "{{" }} user {{- " }}" }}'
